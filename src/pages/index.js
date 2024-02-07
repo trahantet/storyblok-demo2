@@ -8,23 +8,25 @@ import {
 } from "@storyblok/react";
 import Layout from "../components/Layout";
 
-export default function Home({ story }) {
-  story = useStoryblokState(story);
-
+export default function Home({ story, locales, locale, defaultLocale, preview  }) {
+  story = useStoryblokState(story, {
+    language: locale
+  });
   return (
-    <div>
+    <div >
       <Head>
-        <title>Home</title>
+        <title>{story ? story.name : "My Site"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    <Layout>
-      <StoryblokComponent blok={story.content} />
-    </Layout>
+      <Layout locales={locales} locale={locale} defaultLocale={defaultLocale}>
+        <StoryblokComponent blok={story.content} locale={locale}  />
+      </Layout>
     </div>
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ params, locales, locale, defaultLocale, preview }) {
+  console.log(params)
   let slug = "home";
 
   let sbParams = {
