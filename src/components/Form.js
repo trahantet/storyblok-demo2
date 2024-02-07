@@ -9,7 +9,7 @@ export default function Form({ blok }) {
   } = useForm();
 
   function submitForm(data) {
-    console.log(data, blok.Endpoint);
+
   }
 
   return (

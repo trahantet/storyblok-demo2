@@ -2,7 +2,7 @@ import { storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 
 const FtBanner = ({ blok }) => {
-  console.log(blok);
+
   return (
     <div
       className={`column feature border-4 border-black mb-8 mx-12`}

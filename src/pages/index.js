@@ -26,7 +26,7 @@ export default function Home({ story, locales, locale, defaultLocale, preview  }
 }
 
 export async function getStaticProps({ params, locales, locale, defaultLocale, preview }) {
-  console.log(params)
+
   let slug = "home";
 
   let sbParams = {
