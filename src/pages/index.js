@@ -1,12 +1,12 @@
 import Head from "next/head";
-
+import Layout from "../components/Layout";
 
 import {
   useStoryblokState,
   getStoryblokApi,
   StoryblokComponent,
 } from "@storyblok/react";
-import Layout from "../components/Layout";
+
 
 export default function Home({ story, locales, locale, defaultLocale, preview  }) {
   story = useStoryblokState(story, {
