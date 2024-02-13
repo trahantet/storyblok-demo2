@@ -24,6 +24,7 @@ import MaxLength from "@/components/validators/MaxLength";
 import MinLength from "@/components/validators/MinLength";
 import Numeric from "@/components/validators/Numeric";
 import FtBanner from "@/components/FTBanner";
+import Button from "@/components/Button";
 
 import { Inter, Work_Sans, Yeseva_One, Montserrat, Quicksand } from "next/font/google";
 
@@ -84,6 +85,7 @@ const components = {
   "Minimum Length": MinLength,
   "Numeric": Numeric,
   feature_banner: FtBanner,
+  button: Button,
 };
 
 storyblokInit({

@@ -1,7 +1,7 @@
 const Header = ({ blok }) => {
   return (
     <div
-      className={`mx-4 py-8 font-sailors text-3xl font-${
+      className={`mx-4 mx-[1%] py-8 font-sailors text-3xl font-${
         blok.bold === "true" ? "bold" : "normal"
       } uppercase flex justify-${blok.align}`}
     >

@@ -5,7 +5,7 @@ const FtBanner = ({ blok }) => {
 
   return (
     <div
-      className={`column feature border-4 border-black mb-8 mx-12`}
+      className={`column feature border-4 border-black my-[2%] mx-12 `}
       style={{
         backgroundColor: `${
           blok.background_color ? blok.background_color.value : ""
@@ -17,25 +17,27 @@ const FtBanner = ({ blok }) => {
         {blok.header}
       </h1>
       {/* box contents  */}
-      <div className="flex flex-row align-center">
-        <div className="text-left px-8 py-4">{render(blok.text)}</div>
-        <div className="flex flex-row h-[100%] justify-end gap-10 px-4">
+      <div className="flex flex-row align-center justify-between basis-auto">
+        <div className="text-left w-[100%] px-8 py-4 grow">{render(blok.text)}</div>
+        
           {blok.images.map((image) =>
             image.filename ? (
+              <div key={image._uid} className="flex flex-row w-[80%] justify-end gap-4 px-4 shrink ">
               <img
-                key={image._uid}
-                className="h-[20%] w-[20%]"
+                
+                className="w-[20%] h-[20%] object-fill h-auto grow align-middle"
                 src={image.filename}
                 alt="feature"
-              />
+              /></div>
             ) : (
               ""
             )
           )}
-        </div>
+        
       </div>
     </div>
   );
 };
 
 export default FtBanner;
+

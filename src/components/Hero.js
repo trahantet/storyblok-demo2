@@ -1,23 +1,38 @@
 import { storyblokEditable } from "@storyblok/react";
+import Link from "next/link";
 
 const Hero = ({ blok }) => {
- 
   return (
     <div {...storyblokEditable(blok)}>
       <div className="flex">
-        <div className={`w-30% bg-col text-left`} style={{backgroundColor:`${blok.background_color.value}`}}>
-          <h1 className="font-sailors text-6xl font-bold text-header uppercase">global day to destigmatize abortions</h1>
-          <h3>Abortions are a normal part of our reproductive journeys. </h3>
-          <p>
-            Together, we are building a world where everyone is free to access
-            their fundamental right to abortion care with love, care, and
-            support.
-          </p>
+        <div
+          className={`w-[40vw] bg-col text-left px-[2%]`}
+          style={{ backgroundColor: `${blok.background_color.value}` }}
+        >
+          <h1 className="font-sailors text-[4.5vw] font-bold text-header uppercase z-50 align-left pr-[20%] leading-[1.6]">
+            <span className="bg-sage">{blok.headline}</span>
+          </h1>
+          <h3 className="font-bold">{blok.subheadline}</h3>
+          <h3 className="font-light">{blok.body_text}</h3>
+          {blok.button ? (
+            <div className="flex justify-evenly align-center content-start gap-4 w-[100%]">
+              {blok.button.map((unit) => {
+                return (
+                  <button
+                    key={unit.i}
+                    className="bg-white border-2 border-black w-[50%] h-12 "
+                  >
+                    <Link href={`${unit.Link.url}`} target="_blank">
+                      {unit.button_text}
+                    </Link>
+                  </button>
+                );
+              })}{" "}
+            </div>
+          ) : null}
         </div>
-        <div className="w-30% -ml-300">
-          <img src={blok.background_image.filename} />
-        </div>
-        <div className="w-60%">
+
+        <div className="w-[60vw] px-[2%]">
           <img src={blok.hero_image.filename}></img>
         </div>
       </div>

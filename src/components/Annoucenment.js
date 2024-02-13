@@ -1,10 +1,12 @@
 import { storyblokEditable, renderRichText } from "@storyblok/react";
+import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 
 export default function Announcement({ blok }) {
   // const renderedRichText = renderRichText(blok.body);
 
   return (
+    
     <div
       {...storyblokEditable(blok)}
       style={{
@@ -15,15 +17,18 @@ export default function Announcement({ blok }) {
     >
       <div className="w-4/5 ml-500 h-[100%]">
         {/* header */}
-        <div className="bg-sage mt-8 ml-[10%] w-[80%]">
+        <div className=" mt-8 ml-[10%] w-[80%]">
           {" "}
-          <h1 className="font-sailors text-6xl font-bold uppercase text-header leading-[64px]">
+             <h1 className="font-sailors text-6xl font-bold uppercase text-header leading-[1.6]">
+             <span className="bg-sage"> 
             {blok.headline}
+             </span>
           </h1>
+         
         </div>
         {/* body text */}
         <div
-          className={`bg-white px-4 py-4 w-[80%] ml-[10%] text-left ${
+          className={`bg-white px-[2%] py-[4%] w-[100%] text-left ${
             blok.border === "yes" ? "border-2 border-black" : "null"
           }`}
         >
@@ -40,7 +45,9 @@ export default function Announcement({ blok }) {
                   key={unit.i}
                   className="bg-white border-2 border-black w-2/12 h-12"
                 >
+                  <Link href={`${unit.Link.url}`} target="_blank">
                   {unit.button_text}
+                  </Link>
                 </button>
               );
             })}{" "}

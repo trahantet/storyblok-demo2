@@ -11,8 +11,8 @@ const Navigation = () => {
         access resources to break the stigmA
       </div>
       {/* actual nav */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center  py-6 md:justify-start md:space-x-10">
+      <div className=" mx-auto px-4 sm:px-6">
+        <div className="flex justify-around items-center py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1 w-[30vw] text-4xl">
             <Link href="/">
               <span className="font-yeseva">Abortions are normal</span>
@@ -46,7 +46,8 @@ const Navigation = () => {
           </div>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10 ">
             <Link
-              href="/about"
+              href="https://airtable.com/appovsAD7ZM2tQUFX/shrtFmpmtxoRUEcBU"
+              target="_blank"
               className="text-base font-medium text-gray-500 hover:text-gray-900 "
             >
               Join
@@ -55,7 +56,7 @@ const Navigation = () => {
               href="/blog"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              About
+              Resources
             </Link>
             <Link
               href="/services"
