@@ -1,9 +1,12 @@
 import { storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
+import Link from "next/link";
+
 
 const Feature = ({ blok }) => {
+ 
   return(
-  <div className={`column feature `} style={{border: blok.border === "true" ? "4px black solid" : ""}} {...storyblokEditable(blok)}>
+  <div className={`flex-row column content-around items-center feature h-auto`} style={{border: blok.border === "true" ? "4px black solid" : "", backgroundColor:`${blok.background_color ? blok.background_color.value : ""}` }} {...storyblokEditable(blok)}>
      <h1 className="font-sailors text-xl font-bold  text-header bg-sage w-[120%] -ml-4 mt-4">
         {blok.name}
       </h1>
@@ -19,7 +22,20 @@ const Feature = ({ blok }) => {
       )}
      
       <div className="mt-4 text-black">{render(blok.body)}</div>
+   
     </div>
+    {blok.button ?  
+      <button
+                  
+                    className="bg-white border-2 border-black w-[50%] mt-auto"
+                  >
+                    <Link href={`${blok.button_link.url}`} target="_blank">
+                      {blok.button_text}
+                    </Link>
+                    
+                  </button>
+                  : ""}
+   
   </div>
   )
       };

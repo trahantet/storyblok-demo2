@@ -53,13 +53,15 @@ const Navigation = () => {
               Join
             </Link>
             <Link
-              href="/blog"
+              href="#resources"
+              target="_self"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
               Resources
             </Link>
             <Link
-              href="/services"
+              href="#amplify"
+              target="_self"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
             >
               Amplify

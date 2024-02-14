@@ -1,12 +1,15 @@
 import { storyblokEditable, renderRichText } from "@storyblok/react";
 import Link from "next/link";
-import { render } from "storyblok-rich-text-react-renderer";
+import {
+  render,
+  NODE_PARAGRAPH,
+  NODE_BR,
+} from "storyblok-rich-text-react-renderer";
 
 export default function Announcement({ blok }) {
   // const renderedRichText = renderRichText(blok.body);
-
+console.log(blok)
   return (
-    
     <div
       {...storyblokEditable(blok)}
       style={{
@@ -19,12 +22,9 @@ export default function Announcement({ blok }) {
         {/* header */}
         <div className=" mt-8 ml-[10%] w-[80%]">
           {" "}
-             <h1 className="font-sailors text-6xl font-bold uppercase text-header leading-[1.6]">
-             <span className="bg-sage"> 
-            {blok.headline}
-             </span>
+          <h1 className="font-sailors text-6xl font-bold uppercase text-header leading-[1.6]">
+            <span className="bg-sage">{blok.headline}</span>
           </h1>
-         
         </div>
         {/* body text */}
         <div
@@ -33,7 +33,23 @@ export default function Announcement({ blok }) {
           }`}
         >
           <div className="mb-4 text-lg font-inter leading-loose">
-            {render(blok.body)}
+            {/* {blok.body.content.map((paragraph) => {
+              paragraph.content ? render(paragraph) : <br />
+            })} */}
+
+            {render(blok.body, {
+              nodeResolvers: {
+                [NODE_PARAGRAPH]: (children) => 
+                {
+                  if (children) {
+                    
+                      return <p>{children}</p>
+                  }
+
+                  return <br/>
+                
+              }
+            }})}
           </div>
         </div>
         {/* buttons */}
@@ -45,8 +61,8 @@ export default function Announcement({ blok }) {
                   key={unit.i}
                   className="bg-white border-2 border-black w-2/12 h-12"
                 >
-                  <Link href={`${unit.Link.url}`} target="_blank">
-                  {unit.button_text}
+                  <Link href={`${unit.Link.url}`} target={`${unit.Link.target}`}>
+                    {unit.button_text}
                   </Link>
                 </button>
               );
