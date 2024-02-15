@@ -19,7 +19,7 @@ const Hero = ({ blok }) => {
               {blok.button.map((unit) => {
                 return (
                   <button
-                    key={unit.i}
+                    key={unit._uid}
                     className="bg-white border-2 border-black w-[50%] h-12 "
                   >
                     <Link href={`${unit.Link.url}`} target="_blank">

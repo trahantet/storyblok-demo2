@@ -8,7 +8,7 @@ import {
 
 export default function Announcement({ blok }) {
   // const renderedRichText = renderRichText(blok.body);
-console.log(blok)
+
   return (
     <div
       {...storyblokEditable(blok)}

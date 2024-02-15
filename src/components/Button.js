@@ -2,7 +2,7 @@ import Link from "next/link";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
  
 const Button = ({ blok }) => {
-    console.log(blok)
+
   return (
     <div {...storyblokEditable(blok)}>
     

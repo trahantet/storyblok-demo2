@@ -26,6 +26,8 @@ import Numeric from "@/components/validators/Numeric";
 import FtBanner from "@/components/FTBanner";
 import Button from "@/components/Button";
 import LineBreak from "@/components/LineBreak";
+import Dynamic from "@/components/Dynamic";
+import Collect from "@/components/Collection";
 
 import { Inter, Work_Sans, Yeseva_One, Montserrat, Quicksand } from "next/font/google";
 
@@ -88,6 +90,8 @@ const components = {
   feature_banner: FtBanner,
   button: Button,
   line_break: LineBreak,
+  dynamic: Dynamic,
+ Collection: Collect,
 };
 
 storyblokInit({

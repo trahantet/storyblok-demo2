@@ -4,7 +4,7 @@ import Link from "next/link";
 
 
 const Feature = ({ blok }) => {
- 
+
   return(
   <div className={`flex-row column content-around items-center feature h-auto`} style={{border: blok.border === "true" ? "4px black solid" : "", backgroundColor:`${blok.background_color ? blok.background_color.value : ""}` }} {...storyblokEditable(blok)}>
      <h1 className="font-sailors text-xl font-bold  text-header bg-sage w-[120%] -ml-4 mt-4">
@@ -29,7 +29,7 @@ const Feature = ({ blok }) => {
                   
                     className="bg-white border-2 border-black w-[50%] mt-auto"
                   >
-                    <Link href={`${blok.button_link.url}`} target="_blank">
+                    <Link href={`${blok.button_link.cached_url}?page=${blok.button_link.anchor}`} >
                       {blok.button_text}
                     </Link>
                     
