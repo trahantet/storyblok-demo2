@@ -22,7 +22,7 @@ export default function Announcement({ blok }) {
         {/* header */}
         <div className=" mt-8 ml-[10%] w-[80%]">
           {" "}
-          <h1 className="font-sailors text-6xl font-bold uppercase text-header leading-[1.6]">
+          <h1 className="font-sailors text-5xl font-bold uppercase text-header leading-[1.6]">
             <span className="bg-sage">{blok.headline}</span>
           </h1>
         </div>
