@@ -3,10 +3,10 @@ import Link from "next/link";
 
 const Hero = ({ blok }) => {
   return (
-    <div {...storyblokEditable(blok)}>
+    <div {...storyblokEditable(blok)} className="mt-0">
       <div className="flex">
         <div
-          className={`w-[40vw] bg-col text-left px-[2%]`}
+          className={`w-[40vw] bg-col text-left pb-[2%]`}
           style={{ backgroundColor: `${blok.background_color.value}` }}
         >
           <h1 className="font-sailors text-[4.5vw] font-bold text-header uppercase z-50 align-left pr-[20%] leading-[1.6]">

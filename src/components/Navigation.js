@@ -5,7 +5,7 @@ const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <div className="relative bg-white border-b-2 border-gray-100 font-inter">
+    <div className="relative bg-white border-b-2 border-gray-100 font-inter -mb-4">
       {/* top bar */}
       <div className="bg-lav uppercase text-center py-4 font-bold">
         access resources to break the stigmA
