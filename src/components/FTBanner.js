@@ -35,7 +35,7 @@ const FtBanner = ({ blok }) => {
                 //     return <a href={href} target="_blank">{children}</a>;
                 // }
                 // Internal links: map to <Link>
-                return <Link href={href}>{children}</Link>;
+                return <a href={href}>{children}</a>;
             }
         },
         })}</div>
