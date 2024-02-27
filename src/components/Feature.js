@@ -5,7 +5,7 @@ import Link from "next/link";
 const Feature = ({ blok }) => {
   return (
     <div
-      className={`p-2`}
+      className="p-2 flex flex-col justify-between content-center"
       style={{
         border: blok.border === "true" ? "4px black solid" : "",
         backgroundColor: `${
@@ -22,17 +22,17 @@ const Feature = ({ blok }) => {
         ""
       )}
 
-      <div className="flex-column justify-start">
+    
         {blok.image.filename ? (
           <img className="" src={blok.image.filename} alt="feature" />
         ) : (
           ""
         )}
 
-        <div className="text-black">{render(blok.body)}</div>
-      </div>
+        <div className="text-black grow">{render(blok.body)}</div>
+  
       {blok.button ? (
-        <button className="bg-white border-2 border-black w-[50%] mt-auto">
+        <button className="bg-white border-2 border-black w-[50%] self-center m-2">
           <Link
             href={`${blok.button_link.cached_url}?page=${blok.button_link.anchor}`}
           >

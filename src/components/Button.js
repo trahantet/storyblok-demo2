@@ -11,7 +11,7 @@ const Button = ({ blok }) => {
               
                 <button
                   
-                  className="bg-white border-2 border-black w-2/12 h-12 px-[2%] "
+                  className="bg-white border-2 border-black w-2/12 h-[8%] px-[2%] "
                 >
                   <Link className="" href={`${blok.Link.url}`} target="_blank">
                   {blok.button_text}
