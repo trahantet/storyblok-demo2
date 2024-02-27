@@ -1,7 +1,12 @@
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from 'next/router'
 
-const Navigation = () => {
+const Navigation = ({locales, locale, defaultLocale}) => {
+  const router = useRouter()
+  const changeLocale = (loc) => {
+    router.push(router.asPath, router.asPath ,{locale: loc})
+  }
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
@@ -73,7 +78,15 @@ const Navigation = () => {
             >
               Events
             </Link>
-            <div className="text-sage">EN|ES|FR</div>
+            {locales.map(loc => (     
+                <span key={loc} onClick={ () => changeLocale(loc)}
+                    className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 cursor-pointer ${
+                      locale === loc ? "bg-black text-white" : ""
+                    }`}>
+                    {loc}
+              </span>
+              ))}
+            {/* <div className="text-sage">EN|ES|FR</div> */}
           </div>
         </div>
       </div>
