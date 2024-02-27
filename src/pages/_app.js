@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import { storyblokInit, apiPlugin, RichTextSchema } from "@storyblok/react";
-// import cloneDeep from "clone-deep";
 
 import Feature from "../components/Feature";
 import Grid from "../components/Grid";
@@ -94,6 +93,7 @@ const components = {
   dynamic: Dynamic,
  Collection: Collect,
  Footer: Footer,
+ 
 };
 
 storyblokInit({

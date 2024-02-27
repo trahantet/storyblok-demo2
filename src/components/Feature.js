@@ -15,7 +15,7 @@ const Feature = ({ blok }) => {
       {...storyblokEditable(blok)}
     >
       {blok.name ? (
-        <h1 className="font-sailors text-xl font-bold  text-header bg-sage w-[120%] -ml-4 mt-1">
+        <h1 className="font-sailors text-xl font-bold  text-header bg-sage w-[120%] -ml-5 mt-1">
           {blok.name}
         </h1>
       ) : (

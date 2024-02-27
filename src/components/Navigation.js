@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/router'
+import { storyblokEditable } from "@storyblok/react";
 
-const Navigation = ({locales, locale, defaultLocale}) => {
+const Navigation = ({locales, locale, defaultLocale, blok}) => {
   const router = useRouter()
   const changeLocale = (loc) => {
     router.push(router.asPath, router.asPath ,{locale: loc})
@@ -10,7 +11,7 @@ const Navigation = ({locales, locale, defaultLocale}) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <div className="relative bg-white border-b-2 border-gray-100 font-inter -mb-4">
+    <div className="relative bg-white border-b-2 border-gray-100 font-inter -mb-4" {...storyblokEditable(blok)} >
       {/* top bar */}
       <div className="bg-lav uppercase text-center py-4 font-bold">
         access resources to break the stigmA

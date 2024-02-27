@@ -4,7 +4,7 @@ const Header = ({ blok }) => {
     <div
       className={`mx-4 mx-[1%] py-8 font-sailors text-3xl font-${
         blok.bold === "true" ? "bold" : "normal"
-      } uppercase flex text-${blok.align}`}
+      } uppercase flex flex-col justify-center text-${blok.align}`}
 
     id={blok.anchor ? `${blok.anchor}` : ""}
     >
