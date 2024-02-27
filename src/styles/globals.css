@@ -35,3 +35,13 @@ h4{
 p{
   font-size: large;
 }
+
+button{
+  font-size: large;
+  font-weight: bold;
+}
+
+img{
+margin: 0; 
+padding: 0;
+}
