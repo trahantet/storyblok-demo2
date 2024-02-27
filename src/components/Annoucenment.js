@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   render,
   NODE_PARAGRAPH,
+  MARK_LINK,
   NODE_BR,
 } from "storyblok-rich-text-react-renderer";
 
@@ -38,6 +39,21 @@ export default function Announcement({ blok }) {
             })} */}
 
             {render(blok.body, {
+              markResolvers: {
+                [MARK_LINK]: (children, props) => {
+                    const { linktype, href, target } = props;
+                    if (linktype === 'email') {
+                        // Email links: add `mailto:` scheme and map to <a>
+                        return <a href={`mailto:${href}`}>{children}</a>;
+                    }
+                    if (href.match(/^(https?:)?\/\//)) {
+                        // External links: map to <a>
+                        return <a href={href} target="_blank">{children}</a>;
+                    }
+                    // Internal links: map to <Link>
+                    return <Link href={href}>{children}</Link>;
+                }
+            },
               nodeResolvers: {
                 [NODE_PARAGRAPH]: (children) => 
                 {
