@@ -1,15 +1,17 @@
 const Header = ({ blok }) => {
-
+  console.log(blok.font_size)
+  const font = blok.font_size
   return (
+    
     <div
-      className={`mx-4 mx-[1%] py-8 font-sailors text-3xl font-${
+      className={`mx-4 mx-[1%] py-8 font-sailors text-[${font}rem] font-${
         blok.bold === "true" ? "bold" : "normal"
-      } uppercase flex flex-col justify-center text-${blok.align}`}
+      } uppercase flex justify-${blok.align}`}
 
     id={blok.anchor ? `${blok.anchor}` : ""}
     >
       <h1
-    //   className="text-right"
+      // className="text-right"
         style={{
           color: blok.font_color ? blok.font_color.value : "",
           backgroundColor: blok.background_color
