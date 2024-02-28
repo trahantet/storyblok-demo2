@@ -14,10 +14,10 @@ import Ticker from "@/components/Ticker";
 import Announcement from "@/components/Annoucenment";
 import Header from "@/components/Header";
 import Banner from "@/components/Banner";
-import Section  from "@/components/Section";
+import Section from "@/components/Section";
 import Form from "@/components/Form";
 import FormInputs from "@/components/FormInputs";
-import Email from "@/components/validators/Email"
+import Email from "@/components/validators/Email";
 import Required from "@/components/validators/Required";
 import MaxLength from "@/components/validators/MaxLength";
 import MinLength from "@/components/validators/MinLength";
@@ -27,9 +27,16 @@ import Button from "@/components/Button";
 import LineBreak from "@/components/LineBreak";
 import Dynamic from "@/components/Dynamic";
 import Collect from "@/components/Collection";
-import Footer from "@/components/Footer"
+import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 
-import { Inter, Work_Sans, Yeseva_One, Montserrat, Quicksand } from "next/font/google";
+import {
+  Inter,
+  Work_Sans,
+  Yeseva_One,
+  Montserrat,
+  Quicksand,
+} from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,17 +60,16 @@ const yeseva_one = Yeseva_One({
 const sailors = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
-  display: "swap"
-})
+  display: "swap",
+});
 
 const quicksand = Quicksand({
   subsets: ["latin"],
   variable: "--font-quicksand",
-  display: "swap"
-})
+  display: "swap",
+});
 
-// const mySchema = cloneDeep(RichTextSchema); 
-
+// const mySchema = cloneDeep(RichTextSchema);
 
 const components = {
   feature: Feature,
@@ -80,20 +86,20 @@ const components = {
   header: Header,
   banner: Banner,
   section: Section,
-  "Form": Form,
-  'form inputs': FormInputs,
-  "Email": Email,
-  "Required": Required,
+  Form: Form,
+  "form inputs": FormInputs,
+  Email: Email,
+  Required: Required,
   "Maximum Length": MaxLength,
   "Minimum Length": MinLength,
-  "Numeric": Numeric,
+  Numeric: Numeric,
   feature_banner: FtBanner,
   button: Button,
   line_break: LineBreak,
   dynamic: Dynamic,
- Collection: Collect,
- Footer: Footer,
- 
+  Collection: Collect,
+  Footer: Footer,
+  Navigation: Navigation,
 };
 
 storyblokInit({
@@ -109,7 +115,7 @@ storyblokInit({
   //     switch (component) {
   //       case "my-custom-component":
   //         return `<div class="my-component-class">${blok.text}</div>`;
-  //       default: 
+  //       default:
   //         return "Resolver not defined";
   //     }
   //   },
@@ -117,9 +123,15 @@ storyblokInit({
 });
 
 function MyApp({ Component, pageProps }) {
-  return <main className={`${yeseva_one.variable} ${inter.variable} ${sailors.variable}  ${quicksand.variable}`}>
-  <Component {...pageProps} />
-  </main>
+  return (
+    <main
+      className={`${yeseva_one.variable} ${inter.variable} ${sailors.variable}  ${quicksand.variable}`}
+    >
+      <Layout story={pageProps.config}>
+      <Component {...pageProps} />
+      </Layout>
+    </main>
+  );
 }
 
 export default MyApp;

@@ -1,27 +1,28 @@
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import { storyblokEditable } from "@storyblok/react";
 
-const Navigation = ({locales, locale, defaultLocale, blok}) => {
-  const router = useRouter()
+const Navigation = ({ locales, locale, defaultLocale, blok }) => {
+  console.log(blok.body);
+  const router = useRouter();
   const changeLocale = (loc) => {
-    router.push(router.asPath, router.asPath ,{locale: loc})
-  }
+    router.push(router.asPath, router.asPath, { locale: loc });
+  };
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <div className="relative bg-white border-b-2 border-gray-100 font-inter -mb-4" {...storyblokEditable(blok)} >
-      {/* top bar */}
-      <div className="bg-lav uppercase text-center py-4 font-bold">
-        access resources to break the stigmA
-      </div>
+    <div
+      className="relative bg-white border-b-2 border-gray-100 font-inter -mb-4"
+      {...storyblokEditable(blok)}
+    >
+      
       {/* actual nav */}
       <div className=" mx-auto px-4 sm:px-6">
         <div className="flex justify-around items-center py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1 w-[30vw] text-4xl">
             <Link href="/">
-              <span className="font-yeseva">Abortions are normal</span>
+              <span className="font-yeseva">{blok.Header}</span>
             </Link>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
@@ -50,43 +51,31 @@ const Navigation = ({locales, locale, defaultLocale, blok}) => {
               </svg>
             </button>
           </div>
+
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10 ">
-            <Link
-              href="https://airtable.com/appovsAD7ZM2tQUFX/shrtFmpmtxoRUEcBU"
-              target="_blank"
-              className="text-base font-medium text-gray-500 hover:text-gray-900 "
-            >
-              Join
-            </Link>
-            <Link
-              href="/#resources"
-              target="_self"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Resources
-            </Link>
-            <Link
-              href="/#amplify"
-              target="_self"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Amplify
-            </Link>
-            <Link
-              href="/events"
-              target="_self"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Events
-            </Link>
-            {locales.map(loc => (     
-                <span key={loc} onClick={ () => changeLocale(loc)}
-                    className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 cursor-pointer ${
-                      locale === loc ? "bg-sage text-header" : ""
-                    }`}>
-                    {loc}
+            {blok.header_menu.map((route) => (
+              <Link
+                key={route._uid}
+                //  href="https://airtable.com/appovsAD7ZM2tQUFX/shrtFmpmtxoRUEcBU"
+                href={route.link.url}
+                target={route.link.target}
+                className="text-base font-medium text-gray-500 hover:text-gray-900 "
+              >
+                {route.name}
+              </Link>
+            ))}
+{/* 
+            {locales.map((loc) => (
+              <span
+                key={loc}
+                onClick={() => changeLocale(loc)}
+                className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 cursor-pointer ${
+                  locale === loc ? "bg-sage text-header" : ""
+                }`}
+              >
+                {loc}
               </span>
-              ))}
+            ))} */}
             {/* <div className="text-sage">EN|ES|FR</div> */}
           </div>
         </div>

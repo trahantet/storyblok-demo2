@@ -19,8 +19,8 @@ export default function Home({ story, locales, locale, defaultLocale, preview  }
         <title>{story ? story.name : "My Site"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout locales={locales} locale={locale} defaultLocale={defaultLocale}>
-        <StoryblokComponent blok={story.content} locale={locale}  />
+      <Layout locale={locale} locales={locales} defaultLocale={defaultLocale}>
+        <StoryblokComponent blok={story.content} />
       </Layout>
     </div>
   );
@@ -31,12 +31,14 @@ export async function getStaticProps({ locales, locale, defaultLocale }) {
 
   let sbParams = {
     version: 'draft', // or 'published',
-    resolve_relations: ['popular-articles.articles'],
+    resolve_links: "url",
     language: locale,
   };
 
   const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  let { data: config } = await storyblokApi.get('cdn/stories/config');
+
   return {
     props: {
       locales,
@@ -44,6 +46,7 @@ export async function getStaticProps({ locales, locale, defaultLocale }) {
       defaultLocale,
       story: data ? data.story : false,
       key: data ? data.story.id : false,
+      config: config ? config.story : false,
     },
     revalidate: 3600,
   };

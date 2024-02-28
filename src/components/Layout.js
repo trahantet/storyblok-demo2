@@ -1,14 +1,16 @@
 import Navigation from "./Navigation";
 import Footer from "./Footer";
+import Config from "./Config";
 
-
-
-const Layout = ({ children, locale, locales, defaultLocale }) => (
-  <div >
-    <Navigation locales={locales} locale={locale} defaultLocale={defaultLocale} />
-    {children}
-    {/* <Footer /> */}
-  </div>
+const Layout = ({ children, story }) => (
+  console.log(story),
+  (
+    <div>
+      <Config blok={story.content} />
+      {children}
+      {/* <Footer /> */}
+    </div>
+  )
 );
 
 export default Layout;
