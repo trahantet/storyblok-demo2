@@ -9,6 +9,7 @@ import {
 
 
 export default function Home({ story, locales, locale, defaultLocale, preview  }) {
+  
   story = useStoryblokState(story, {
     language: locale
   });

@@ -82,7 +82,7 @@ const Navigation = ({locales, locale, defaultLocale, blok}) => {
             {locales.map(loc => (     
                 <span key={loc} onClick={ () => changeLocale(loc)}
                     className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 cursor-pointer ${
-                      locale === loc ? "bg-black text-white" : ""
+                      locale === loc ? "bg-sage text-header" : ""
                     }`}>
                     {loc}
               </span>

@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 
 const Ticker = ({ blok }) => {
     
-    console.log(blok.play)
+   
     return(
 
     <div className="bg-sage text-white py-4" {...storyblokEditable(blok)} >
