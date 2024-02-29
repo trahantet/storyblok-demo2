@@ -2,6 +2,7 @@ import { storyblokEditable } from "@storyblok/react";
 import Link from "next/link";
 
 const Hero = ({ blok }) => {
+  const font = `${blok.font_size}vw`;
   return (
     <div {...storyblokEditable(blok)} className="mt-0">
       <div className="flex">
@@ -9,7 +10,7 @@ const Hero = ({ blok }) => {
           className={`w-[40vw] bg-col text-left px-[2%]`}
           style={{ backgroundColor: `${blok.background_color.value}` }}
         >
-          <h1 className="font-sailors text-[4.5vw] font-bold text-header uppercase z-50 align-left pr-[20%] leading-[1.6]">
+          <h1 className="font-sailors font-bold text-header uppercase z-50 align-left pr-[20%] leading-[1.6]" style={{ fontSize: font ? font : "40vw"}}>
             <span className="bg-sage">{blok.headline}</span>
           </h1>
           <h3 className="font-bold">{blok.subheadline}</h3>
