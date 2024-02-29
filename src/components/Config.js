@@ -2,6 +2,7 @@ import { storyblokEditable, StoryblokComponent, getStoryblokApi } from "@storybl
 import Link from "next/link";
 
 const Config = ({blok}) => {
+ 
   return (
     <div className="relative bg-white border-b-2 border-gray-100" {...storyblokEditable(blok)}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">

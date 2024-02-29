@@ -127,9 +127,9 @@ function MyApp({ Component, pageProps }) {
     <main
       className={`${yeseva_one.variable} ${inter.variable} ${sailors.variable}  ${quicksand.variable}`}
     >
-      <Layout story={pageProps.config}>
+      {/* <Layout story={pageProps.config}> */}
       <Component {...pageProps} />
-      </Layout>
+      {/* </Layout> */}
     </main>
   );
 }

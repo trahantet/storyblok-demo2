@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { storyblokEditable } from "@storyblok/react";
 
 const Navigation = ({ locales, locale, defaultLocale, blok }) => {
-  console.log(blok.body);
+  console.log(blok)
   const router = useRouter();
   const changeLocale = (loc) => {
     router.push(router.asPath, router.asPath, { locale: loc });
@@ -64,8 +64,8 @@ const Navigation = ({ locales, locale, defaultLocale, blok }) => {
                 {route.name}
               </Link>
             ))}
-{/* 
-            {locales.map((loc) => (
+
+            {locales ? locales.map((loc) => (
               <span
                 key={loc}
                 onClick={() => changeLocale(loc)}
@@ -75,7 +75,7 @@ const Navigation = ({ locales, locale, defaultLocale, blok }) => {
               >
                 {loc}
               </span>
-            ))} */}
+            )) : ""}
             {/* <div className="text-sage">EN|ES|FR</div> */}
           </div>
         </div>
