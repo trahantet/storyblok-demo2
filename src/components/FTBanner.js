@@ -28,16 +28,19 @@ const FtBanner = ({ blok }) => {
                 }
                 if (linktype === "url") {
                   // Email links: add `mailto:` scheme and map to <a>
-                  return (
-                    <a className="color:red" href={href} target="_blank">
-                      {children}
-                    </a>
-                  );
+                 
+                    // <a className="color:red" href={href} target="_blank">
+                    //   {children}
+                    // </a>
+                    if (href.match(/^(https?:)?\/\//)) {
+                      // External links: map to <a>
+                      return <a href={href} target="_blank">{children}</a>;
+                  
+                  
                 }
-                // if (href.match(/^(https?:)?\/\//)) {
-                //     // External links: map to <a>
-                //     return <a href={href} target="_blank">{children}</a>;
-                // }
+                return <a href={'http://'+ href} target="_blank">{children}</a>;
+
+              }
                 // Internal links: map to <Link>
                 return <a href={href}>{children}</a>;
               },
