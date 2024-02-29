@@ -7,10 +7,8 @@ import {
 } from "@storyblok/react";
 export default function Page({
   story,
-  locales,
+
   locale,
-  defaultLocale,
-  config,
 }) {
   story = useStoryblokState(story, {
     language: locale,
@@ -28,7 +26,7 @@ export default function Page({
         locale={locale}
         defaultLocale={defaultLocale}
       > */}
-        <StoryblokComponent blok={story.content} locale={locale} />
+      <StoryblokComponent blok={story.content}/>
       {/* </Layout> */}
     </div>
   );

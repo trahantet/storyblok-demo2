@@ -12,8 +12,6 @@ export default function Home({
   locales,
   locale,
   defaultLocale,
-  config,
-  preview,
 }) {
   story = useStoryblokState(
     story,
