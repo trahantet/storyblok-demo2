@@ -5,7 +5,7 @@ import Link from "next/link";
 const Feature = ({ blok }) => {
   return (
     <div
-      className="p-2 flex flex-col justify-between content-center"
+      className="p-2 flex flex-col gap-1"
       style={{
         border: blok.border === "true" ? "4px black solid" : "",
         backgroundColor: `${
@@ -24,12 +24,12 @@ const Feature = ({ blok }) => {
 
     
         {blok.image.filename ? (
-          <img className="" src={blok.image.filename} alt="feature" />
+          <img className="w-[50%] mx-[25%]" src={blok.image.filename} alt="feature" />
         ) : (
           ""
         )}
 
-        <div className="text-black grow">{render(blok.body)}</div>
+        <div className="text-black grow ">{render(blok.body)}</div>
   
       {blok.button ? (
         <button className="bg-white border-2 border-black w-[50%] self-center m-2">
