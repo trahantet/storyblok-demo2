@@ -31,7 +31,7 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Layout config={config} locales={locales} locale={locale} defaultLocale={defaultLocale}> */}
-        <StoryblokComponent blok={story.content} />
+        <StoryblokComponent />
       {/* </Layout> */}
     </div>
   );
