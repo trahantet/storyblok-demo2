@@ -123,7 +123,7 @@ storyblokInit({
 });
 
 function MyApp({ Component, pageProps }) {
-  console.log(pageProps.locales)
+  // console.log(pageProps.locales)
   return (
     <main
       className={`${yeseva_one.variable} ${inter.variable} ${sailors.variable}  ${quicksand.variable}`}
