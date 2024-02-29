@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 
-const Config = ({ locales_temp, locale, defaultLocale, blok }) => {
-  // console.log(`config ${locales_temp}`)
+const Config = ({ locales, locale, defaultLocale, blok }) => {
+  // console.log(blok)
   const router = useRouter();
   const changeLocale = (loc) => {
     router.push(router.asPath, router.asPath, { locale: loc });
@@ -67,7 +67,7 @@ const Config = ({ locales_temp, locale, defaultLocale, blok }) => {
               </Link>
             ))}
 
-            {locales_temp ? locales_temp.map((loc) => (
+            {locales ? locales.map((loc) => (
               <span
                 key={loc}
                 onClick={() => changeLocale(loc)}

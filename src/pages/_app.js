@@ -123,13 +123,13 @@ storyblokInit({
 });
 
 function MyApp({ Component, pageProps }) {
-  console.log(pageProps)
+  console.log(pageProps.locales)
   return (
     <main
       className={`${yeseva_one.variable} ${inter.variable} ${sailors.variable}  ${quicksand.variable}`}
     >
-      <Layout config={pageProps.config}>
-      <Component {...pageProps} />
+      <Layout config={pageProps.config} locales={pageProps.locales} locale={pageProps.locale} defaultLocale={pageProps.defaultLocale}>
+        <Component {...pageProps} />
       </Layout>
     </main>
   );

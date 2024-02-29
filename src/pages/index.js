@@ -12,14 +12,19 @@ export default function Home({
   locales,
   locale,
   defaultLocale,
+  config,
   preview,
 }) {
-  story = useStoryblokState(story, {
-    language: locale,
-    locales: locales,
-    defaultLocale: defaultLocale,
-  });
+  story = useStoryblokState(
+    story,
+    {
+      language: locale,
+      locales: locales,
+      defaultLocale: defaultLocale,
+    }
+  );
 
+  // console.log(config);
 
   return (
     <div>
@@ -27,8 +32,8 @@ export default function Home({
         <title>{story ? story.name : "My Site"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Layout > */}
-        <StoryblokComponent blok={story.content}/>
+      {/* <Layout config={config} locales={locales} locale={locale} defaultLocale={defaultLocale}> */}
+        <StoryblokComponent blok={story.content} />
       {/* </Layout> */}
     </div>
   );
@@ -45,7 +50,7 @@ export async function getStaticProps({ locales, locale, defaultLocale }) {
 
   const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
-  let { data: config } = await storyblokApi.get('cdn/stories/config', sbParams);
+  let { data: config } = await storyblokApi.get("cdn/stories/config", sbParams);
   return {
     props: {
       locales,
