@@ -10,7 +10,7 @@ const Config = ({ locales, locale, defaultLocale, blok }) => {
     router.push(router.asPath, router.asPath, { locale: loc });
   };
   const [openMenu, setOpenMenu] = useState(false);
-
+console.log(blok.header_menu)
   return (
     <div
       className="relative bg-white border-b-2 border-gray-100 font-inter -mb-4"
@@ -56,10 +56,11 @@ const Config = ({ locales, locale, defaultLocale, blok }) => {
 
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10 ">
             {blok.header_menu.map((route) => (
+              
               <Link
                 key={route._uid}
                 //  href="https://airtable.com/appovsAD7ZM2tQUFX/shrtFmpmtxoRUEcBU"
-                href={route.link.linktype === "url" ? route.link.url : route.link.cached_url}
+                href={route.link.url ?  route.link.url : route.link.cached_url === "home" ?  `./#${route.link.anchor}` : route.link.cached_url }
                 target={route.link.target}
                 className="text-base font-medium text-gray-500 hover:text-gray-900 "
               >

@@ -10,7 +10,7 @@ const Hero = ({ blok }) => {
           className={`w-[40vw] bg-col text-left px-[2%]`}
           style={{ backgroundColor: `${blok.background_color.value}` }}
         >
-          <h1 className="font-sailors font-bold text-header uppercase z-50 align-left pr-[20%] leading-[1.6]" style={{ fontSize: font ? font : "40vw"}}>
+          <h1 className="font-sailors font-bold text-header uppercase z-50 align-left pr-[20%] leading-[1.6]" style={{ fontSize: font ? font : "4.5vw"}}>
             <span className="bg-sage">{blok.headline}</span>
           </h1>
           <h3 className="font-bold">{blok.subheadline}</h3>
