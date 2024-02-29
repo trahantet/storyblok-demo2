@@ -5,7 +5,7 @@ import Config from "./Config";
 const Layout = ({ children, story, config, locale, locales, defaultLocale }) => (
   (
     <div>
-      <Config blok={config} locales={locales} locale={locale} defaultLocale={defaultLocale}/>
+      <Config blok={config.content} locales={locales} locale={locale} defaultLocale={defaultLocale}/>
        
       {children}
       {/* <Footer /> */}

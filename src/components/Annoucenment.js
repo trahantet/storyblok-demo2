@@ -77,7 +77,7 @@ export default function Announcement({ blok }) {
             {blok.buttons.map((unit) => {
               return (
                 <button
-                  key={unit.i}
+                  key={unit._uid}
                   className="bg-white border-2 border-black w-2/12 h-12"
                 >
                   <Link href={`${unit.Link.url}`} target={`${unit.Link.target}`}>
