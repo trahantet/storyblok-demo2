@@ -29,7 +29,7 @@ export default function Page({
         locale={locale}
         defaultLocale={defaultLocale}
       > */}
-      <StoryblokComponent blok={story ? story.content : null} locale={locale}  />
+      {/* <StoryblokComponent blok={story ? story.content : null} locale={locale}  /> */}
       {/* </Layout> */}
     </div>
   );
