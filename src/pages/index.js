@@ -27,9 +27,9 @@ export default function Home({
         <title>{story ? story.name : "My Site"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <StoryblokComponent blok={story.content} locale={locale} locales={locales} defaultLocale={defaultLocale} />
-      </Layout>
+      {/* <Layout > */}
+        <StoryblokComponent blok={story.content}/>
+      {/* </Layout> */}
     </div>
   );
 }
@@ -40,6 +40,7 @@ export async function getStaticProps({ locales, locale, defaultLocale }) {
   let sbParams = {
     version: "draft", // or 'published',
     language: locale,
+    resolve_links: "url",
   };
 
   const storyblokApi = getStoryblokApi();
