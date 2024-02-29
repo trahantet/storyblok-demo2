@@ -128,9 +128,9 @@ function MyApp({ Component, pageProps }) {
     <main
       className={`${yeseva_one.variable} ${inter.variable} ${sailors.variable}  ${quicksand.variable}`}
     >
-      <Layout config={pageProps.config} locales={pageProps.locales} locale={pageProps.locale} defaultLocale={pageProps.defaultLocale}>
+      {/* <Layout config={pageProps.config} locales={pageProps.locales} locale={pageProps.locale} defaultLocale={pageProps.defaultLocale}> */}
         <Component {...pageProps} />
-      </Layout>
+      {/* </Layout> */}
     </main>
   );
 }

@@ -6,7 +6,7 @@ const Layout = ({ children, config, locale, locales, defaultLocale }) => (
   // console.log(story),
   (
     <div>
-      <Config blok={config ? config.content : null} locales={locales} locale={locale} defaultLocale={defaultLocale}/>
+      <Config blok={config.content} locales={locales} locale={locale} defaultLocale={defaultLocale}/>
        
       {children}
       {/* <Footer /> */}

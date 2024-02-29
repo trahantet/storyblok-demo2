@@ -10,6 +10,7 @@ export default function Page({
   locales,
   locale,
   defaultLocale,
+  config,
 }) {
   story = useStoryblokState(story, {
     language: locale,
@@ -23,14 +24,14 @@ export default function Page({
         <title>{story ? story.name : "My Site"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Layout
+      <Layout
         config={config}
         locales={locales}
         locale={locale}
         defaultLocale={defaultLocale}
-      > */}
+      >
       <StoryblokComponent blok={story ? story.content : null} locale={locale}  />
-      {/* </Layout> */}
+      </Layout>
     </div>
   );
 }

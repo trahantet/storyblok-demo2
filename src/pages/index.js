@@ -7,20 +7,12 @@ import {
   StoryblokComponent,
 } from "@storyblok/react";
 
-export default function Home({
-  story,
-  locales,
-  locale,
-  defaultLocale,
-}) {
-  story = useStoryblokState(
-    story,
-    {
-      language: locale,
-      locales: locales,
-      defaultLocale: defaultLocale,
-    }
-  );
+export default function Home({ story, locales, locale, defaultLocale, config }) {
+  story = useStoryblokState(story, {
+    language: locale,
+    locales: locales,
+    defaultLocale: defaultLocale,
+  });
 
   // console.log(story);
 
@@ -30,9 +22,14 @@ export default function Home({
         <title>{story ? story.name : "My Site"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Layout config={config} locales={locales} locale={locale} defaultLocale={defaultLocale}> */}
-        <StoryblokComponent blok={story ? story.content : null} />
-      {/* </Layout> */}
+      <Layout
+        config={config}
+        locales={locales}
+        locale={locale}
+        defaultLocale={defaultLocale}
+      >
+        <StoryblokComponent blok={story.content} />
+      </Layout>
     </div>
   );
 }
