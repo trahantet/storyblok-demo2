@@ -16,7 +16,7 @@ export default function Page({
     locales: locales,
     defaultLocale: defaultLocale,
   });
-  // console.log(config)
+  // console.log(story);
   return (
     <div>
       <Head>
@@ -29,7 +29,7 @@ export default function Page({
         locale={locale}
         defaultLocale={defaultLocale}
       > */}
-      <StoryblokComponent blok={story.content} locale={locale}  />
+      <StoryblokComponent blok={story ? story.content : null} locale={locale}  />
       {/* </Layout> */}
     </div>
   );

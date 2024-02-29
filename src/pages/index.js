@@ -22,7 +22,7 @@ export default function Home({
     }
   );
 
-  // console.log(config);
+  // console.log(story);
 
   return (
     <div>
@@ -31,7 +31,7 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Layout config={config} locales={locales} locale={locale} defaultLocale={defaultLocale}> */}
-        <StoryblokComponent />
+        <StoryblokComponent blok={story ? story.content : null} />
       {/* </Layout> */}
     </div>
   );
