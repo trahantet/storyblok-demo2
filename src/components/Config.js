@@ -59,7 +59,7 @@ const Config = ({ locales, locale, defaultLocale, blok }) => {
               <Link
                 key={route._uid}
                 //  href="https://airtable.com/appovsAD7ZM2tQUFX/shrtFmpmtxoRUEcBU"
-                href={route.link.url}
+                href={route.link.linktype === "url" ? route.link.url : route.link.cached_url}
                 target={route.link.target}
                 className="text-base font-medium text-gray-500 hover:text-gray-900 "
               >
