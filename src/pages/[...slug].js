@@ -65,7 +65,7 @@ export async function getStaticPaths({ locales }) {
   let paths = [];
   Object.keys(data.links).forEach((linkKey) => {
     if (data.links[linkKey].is_folder || data.links[linkKey].slug === "home") {
-      return;
+      return 
     }
     const slug = data.links[linkKey].slug;
     let splittedSlug = slug.split("/");
@@ -76,6 +76,6 @@ export async function getStaticPaths({ locales }) {
   });
   return {
     paths: paths,
-    fallback: false,
+    fallback: true,
   };
 }
