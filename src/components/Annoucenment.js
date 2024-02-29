@@ -20,9 +20,9 @@ export default function Announcement({ blok }) {
     >
       <div className="w-4/5 ml-500 h-[100%]">
         {/* header */}
-        <div className=" mt-8 ml-[10%] w-[80%]">
+        <div className="sm:mt-8 sm:ml-[10%] sm:w-[80%]">
           {" "}
-          <h1 className="font-sailors text-5xl font-bold uppercase text-header leading-[1.6]">
+          <h1 className="font-sailors text-3xl font-bold uppercase text-header leading-[1.6] sm:text-4xl sm:text-5xl ">
             <span className="bg-sage">{blok.headline}</span>
           </h1>
         </div>
@@ -32,7 +32,7 @@ export default function Announcement({ blok }) {
             blok.border === "yes" ? "border-2 border-black" : "null"
           }`}
         >
-          <div className="mb-4 text-lg font-inter leading-loose">
+          <div className="mb-4 sm:text-lg font-inter leading-loose text-center sm:text-left">
             {/* {blok.body.content.map((paragraph) => {
               paragraph.content ? render(paragraph) : <br />
             })} */}
@@ -73,12 +73,12 @@ export default function Announcement({ blok }) {
         </div>
         {/* buttons */}
         {blok.buttons ? (
-          <div className="flex justify-evenly content-center w-[70%] ml-[15%] mt-[4%]">
+          <div className="flex flex-col sm:flex-row justify-evenly content-center w-[70%] ml-[15%] mt-[4%]">
             {blok.buttons.map((unit) => {
               return (
                 <button
                   key={unit._uid}
-                  className="bg-white border-2 border-black w-2/12 h-12"
+                  className="bg-white border-2 border-black my-2 sm:w-2/12 h-12"
                 >
                   <Link href={`${unit.Link.url}`} target={`${unit.Link.target}`}>
                     {unit.button_text}

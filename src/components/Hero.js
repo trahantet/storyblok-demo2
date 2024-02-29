@@ -5,12 +5,12 @@ const Hero = ({ blok }) => {
   const font = `${blok.font_size}vw`;
   return (
     <div {...storyblokEditable(blok)} className="mt-0">
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         <div
-          className={`w-[40vw] bg-col text-left px-[2%]`}
+          className={`sm:w-[40vw] bg-col sm:text-left py-1 px-[2%]`}
           style={{ backgroundColor: `${blok.background_color.value}` }}
         >
-          <h1 className="font-sailors font-bold text-header uppercase z-50 align-left pr-[20%] leading-[1.6]" style={{ fontSize: font ? font : "4.5vw"}}>
+          <h1 className="font-sailors font-bold text-header uppercase z-50 sm:align-left sm:pr-[20%] leading-[1.6] text-2xl" style={{ fontSize: font ? font : "4.5vw"}}>
             <span className="bg-sage">{blok.headline}</span>
           </h1>
           <h3 className="font-bold">{blok.subheadline}</h3>
@@ -33,7 +33,7 @@ const Hero = ({ blok }) => {
           ) : null}
         </div>
 
-        <div className="w-[60vw] px-[2%]">
+        <div className="sm:w-[60vw] sm:px-[2%]">
           <img src={blok.hero_image.filename}></img>
         </div>
       </div>

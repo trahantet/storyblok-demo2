@@ -21,13 +21,8 @@ console.log(blok.header_menu)
       ))}
       {/* actual nav */}
       <div className=" mx-auto px-4 sm:px-6">
-        <div className="flex justify-around items-center py-6 md:justify-start md:space-x-10">
-          <div className="flex justify-start lg:w-0 lg:flex-1 w-[30vw] text-4xl">
-            <Link href="/">
-              <span className="font-yeseva">{blok.Header}</span>
-            </Link>
-          </div>
-          <div className="-mr-2 -my-2 md:hidden">
+        <div className="flex flex-col  sm:flex-row sm:justify-around items-center sm:py-6 sm:justify-start sm:space-x-10">
+          <div className="md:hidden">
             <button
               type="button"
               onClick={() => setOpenMenu(true)}
@@ -53,6 +48,12 @@ console.log(blok.header_menu)
               </svg>
             </button>
           </div>
+          <div className="flex justify-center text-2xl sm:justify-start lg:w-0 lg:flex-1 sm:w-[30vw] sm:text-4xl">
+            <Link href="/">
+              <span className="font-yeseva">{blok.Header}</span>
+            </Link>
+          </div>
+          
 
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10 ">
             {blok.header_menu.map((route) => (
@@ -91,14 +92,8 @@ console.log(blok.header_menu)
         <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5">
-              <div className="flex items-center justify-between">
-                <div>
-                  <img
-                    className="h-8 w-auto"
-                    src="https://a.storyblok.com/f/88751/92x106/835caf912a/storyblok-logo.png"
-                    alt="Storyblok"
-                  />
-                </div>
+              <div className="flex items-center justify-end gap-1">
+                
                 <div className="-mr-2">
                   <button
                     type="button"
@@ -125,35 +120,31 @@ console.log(blok.header_menu)
                   </button>
                 </div>
               </div>
-              <div className="mt-6">
-                <nav className="grid gap-y-8">
-                  <Link
-                    href="/about"
-                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
-                  >
-                    {/* <!-- Heroicon name: outline/chart-bar --> */}
-                    <span className="ml-3 text-base font-medium text-gray-900">
-                      About
-                    </span>
-                  </Link>
-                  <Link
-                    href="/blog"
-                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
-                  >
-                    {/* <!-- Heroicon name: outline/cursor-click --> */}
-                    <span className="ml-3 text-base font-medium text-gray-900">
-                      Blog
-                    </span>
-                  </Link>
-                  <Link
-                    href="/services"
-                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
-                  >
-                    <span className="ml-3 text-base font-medium text-gray-900">
-                      Services
-                    </span>
-                  </Link>
-                </nav>
+              <div className="flex flex-col items-center mt-6">
+              {blok.header_menu.map((route) => (
+              
+              <Link
+                key={route._uid}
+                //  href="https://airtable.com/appovsAD7ZM2tQUFX/shrtFmpmtxoRUEcBU"
+                href={route.link.url ?  route.link.url : route.link.cached_url === "home" ?  `./#${route.link.anchor}` : route.link.cached_url }
+                target={route.link.target}
+                className="text-base font-medium text-gray-500 hover:text-gray-900 cursor-pointer"
+              >
+                {route.name}
+              </Link>
+            ))}
+
+            {locales ? locales.map((loc) => (
+              <span
+                key={loc}
+                onClick={() => changeLocale(loc)}
+                className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 cursor-pointer ${
+                  locale === loc ? "bg-sage text-header" : ""
+                }`}
+              >
+                {loc}
+              </span>
+            )) : ""}
               </div>
             </div>
           </div>
