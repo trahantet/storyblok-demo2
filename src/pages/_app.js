@@ -123,13 +123,14 @@ storyblokInit({
 });
 
 function MyApp({ Component, pageProps }) {
+  console.log(pageProps)
   return (
     <main
       className={`${yeseva_one.variable} ${inter.variable} ${sailors.variable}  ${quicksand.variable}`}
     >
-      {/* <Layout story={pageProps.config}> */}
+      <Layout config={pageProps.config}>
       <Component {...pageProps} />
-      {/* </Layout> */}
+      </Layout>
     </main>
   );
 }

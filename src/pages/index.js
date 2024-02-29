@@ -20,6 +20,7 @@ export default function Home({
     defaultLocale: defaultLocale,
   });
 
+
   return (
     <div>
       <Head>
@@ -43,8 +44,7 @@ export async function getStaticProps({ locales, locale, defaultLocale }) {
 
   const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
-  // let { data: config } = await storyblokApi.get('cdn/stories/config');
-
+  let { data: config } = await storyblokApi.get('cdn/stories/config', sbParams);
   return {
     props: {
       locales,
@@ -52,7 +52,7 @@ export async function getStaticProps({ locales, locale, defaultLocale }) {
       defaultLocale,
       story: data ? data.story : false,
       key: data ? data.story.id : false,
-      // config: config ? config.story : false,
+      config: config ? config.story : false,
     },
     revalidate: 3600,
   };
