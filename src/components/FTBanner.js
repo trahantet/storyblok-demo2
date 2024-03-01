@@ -12,12 +12,12 @@ const FtBanner = ({ blok }) => {
       }}
       {...storyblokEditable(blok)}
     >
-      <h1 className="font-sailors text-xl font-bold text-header bg-sage ml-4 -mt-4 w-[fit-content]">
+      <h1 className="font-sailors text-xl font-bold text-header bg-sage ml-1 sm:ml-4 -mt-4 w-[fit-content]">
         {blok.header}
       </h1>
       {/* box contents  */}
-      <div className="flex flex-row justify-center gap-4 p-6">
-        <div className="text-left m-auto">
+      <div className="flex flex-col sm:flex-row justify-center gap-4 p-6">
+        <div className="text-center sm:text-left m-auto">
           {render(blok.text, {
             markResolvers: {
               [MARK_LINK]: (children, props) => {
@@ -50,7 +50,7 @@ const FtBanner = ({ blok }) => {
 
         {blok.images.map((image) =>
           image.filename ? (
-            <div key={image._uid} className="max-w-96">
+            <div key={image._uid} className="sm:max-w-96">
               <img
                 key={image._uid}
                 className=""
