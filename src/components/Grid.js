@@ -8,14 +8,15 @@ const columns = `sm:grid-cols-${blok.column_num}`
 function getNumofCols() {
 
   let numCols = blok.column_num
- 
-  return "grid-cols-" + numCols ;
+  
+  
+  return "sm:grid-cols-" + numCols  ;
 }
 
 console.log(columns)
   return (
     <div
-      className={` auto-rows-min gap-x-[4%] gap-y-4 px-${blok.px} sm:px-12 items-stretch ${desktop} ${getNumofCols()}`}
+      className={`grid-row  gap-x-[4%] gap-y-4 px-${blok.px} sm:px-12 items-stretch ${desktop} sm:auto-rows-min sm:grid-col ${getNumofCols()}`}
       // style={{ gridTemplateColumns: `repeat(${blok.column_num}, 1fr)` }}
       {...storyblokEditable(blok)}
     >
