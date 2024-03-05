@@ -15,22 +15,28 @@ const Feature = ({ blok }) => {
       {...storyblokEditable(blok)}
     >
       {blok.name ? (
-        <h1 className="font-sailors text-xl font-bold  text-header bg-sage w-[120%] -ml-5 mt-1">
+        <h1 className="font-sailors text-xl font-bold text-header bg-sage w-[120%] -ml-5 mt-1">
           {blok.name}
         </h1>
       ) : (
         ""
       )}
 
-    
-        {blok.image.filename ? (
-          <img className="w-[25%] mx-[37%] h-auto sm:w-[50%] sm:mx-[25%]" src={blok.image.filename} alt="feature" />
-        ) : (
-          ""
-        )}
+      {blok.image.filename ? (
+        <img
+          className="w-[25%] mx-[37%] h-auto sm:w-[50%] sm:mx-[25%]"
+          src={blok.image.filename}
+          alt="feature"
+        />
+      ) : (
+        ""
+      )}
+      {blok.body ? (
+        <div className="text-black ">{render(blok.body)}</div>
+      ) : (
+        ""
+      )}
 
-        <div className="text-black grow ">{render(blok.body)}</div>
-  
       {blok.button ? (
         <button className="bg-white border-2 border-black w-[50%] self-center m-2">
           <Link
