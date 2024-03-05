@@ -2,31 +2,33 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import { Genos } from "next/font/google";
 
 const Grid = ({ blok }) => {
-  const desktop = blok.desktop_only ? `hidden sm:grid` : `grid`;
-  const columns = `!sm:grid-cols-${blok.column_num}`;
-
-  function getNumofCols() {
-
-    let numCols = blok.column_num;
-
-    return (  "sm:grid-cols-" + numCols + "grid-cols-3"  );
-  }
-
   return (
     <div
-      className={`gap-x-[4%] gap-y-4 px-${blok.px}  ${desktop} grid-cols-${blok.column_num}`}
-      // 
-      // sm:px-12
-      // sm:auto-rows-min }
-      // items-stretch
+      className="grid"
+  
+   
 
-      // style={{ gridTemplateColumns: `repeat(${blok.column_num}, 1fr)` }}
-      style={{ gridTemplateColumns: `${getNumofCols()}` }}
       {...storyblokEditable(blok)}
     >
       {blok.columns.map((nestedBlok) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
+      <style jsx>{`
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(${blok.column_num}, 1fr);
+          column-gap: 4%;
+          row-gap: 1rem;
+          padding: 0 ${blok.px}rem
+        }
+        @media (max-width: 768px) {
+          .grid {
+            grid-template-columns: repeat(1, 1fr);
+            display: ${blok.desktop_only ? "none" : "grid"};
+            
+          }
+        }
+      `}</style>
     </div>
   );
 };
