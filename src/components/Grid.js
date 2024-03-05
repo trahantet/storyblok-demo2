@@ -14,7 +14,7 @@ const Grid = ({ blok }) => {
 
   return (
     <div
-      className={`gap-x-[4%] gap-y-4 px-${blok.px}  ${desktop} grid-cols-1  sm:grid-cols-${blok.column_num}`}
+      className={`gap-x-[4%] gap-y-4 px-${blok.px}  ${desktop} grid-cols-${blok.column_num}`}
       // 
       // sm:px-12
       // sm:auto-rows-min }

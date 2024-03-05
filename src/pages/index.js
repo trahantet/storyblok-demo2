@@ -20,7 +20,7 @@ export default function Home({ story, locales, locale, defaultLocale, config }) 
     <div>
       <Head>
         <title>{story ? story.name : "My Site"}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/MARCH 28 ICON Green Minimalist Simple (1).svg" />
       </Head>
       <Layout
         config={config}
@@ -35,7 +35,7 @@ export default function Home({ story, locales, locale, defaultLocale, config }) 
 }
 
 export async function getStaticProps({ locales, locale, defaultLocale }) {
-  let slug = "home";
+  let slug = "march-28";
 
   let sbParams = {
     version: "draft", // or 'published',

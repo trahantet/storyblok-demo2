@@ -41,7 +41,7 @@ export async function getStaticProps({
   locale,
   defaultLocale,
 }) {
-  let slug = params.slug ? params.slug.join("/") : "home";
+  let slug = params.slug ? params.slug.join("/") : "march-28";
   let sbParams = {
     version: "draft", // or 'published'
     language: locale,
