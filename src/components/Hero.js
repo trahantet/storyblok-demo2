@@ -10,7 +10,8 @@ const Hero = ({ blok }) => {
           className={`sm:w-[40vw] bg-col sm:text-left py-1 px-[2%]`}
           style={{ backgroundColor: `${blok.background_color.value}` }}
         >
-          <h1 className="font-sailors font-bold text-header uppercase z-50 sm:align-left sm:pr-[20%] leading-[1.6] text-2xl" style={{ fontSize: font ? font : "4.5vw"}}>
+          <h1 className={`header font-sailors text-header z-50 sm:align-left sm:pr-[20%] leading-[1.6]`} >
+            {/* style={{ fontSize: font ? font : "4.5vw"}} */}
             <span className="bg-sage">{blok.headline}</span>
           </h1>
           <h3 className="font-bold">{blok.subheadline}</h3>
@@ -37,6 +38,21 @@ const Hero = ({ blok }) => {
           <img src={blok.hero_image.filename}></img>
         </div>
       </div>
+      <style jsx>{`
+        .header {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: ${font}
+         
+        }
+        @media (max-width: 768px) {
+          .header{
+            font-size: 7vw;
+            
+          }
+        }
+      `}</style>
+
     </div>
   );
 };
