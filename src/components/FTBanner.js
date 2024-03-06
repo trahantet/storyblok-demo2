@@ -50,7 +50,7 @@ const FtBanner = ({ blok }) => {
 
         {blok.images.map((image) =>
           image.filename ? (
-            <div key={image._uid} className="sm:max-w-96">
+            <div key={image._uid} className="sm:max-w-96 ">
               <img
                 key={image._uid}
                 className=""

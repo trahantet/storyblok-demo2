@@ -3,11 +3,12 @@ import { Margarine } from "next/font/google";
 import Marquee from "react-fast-marquee";
 
 const Ticker = ({ blok }) => {
-  console.log(blok);
+  // console.log(blok);
   const mobile = blok.mobile_only ? "sm:hidden" : " ";
   return (
     <div
-      className={`bg-sage text-white py-4 ${mobile}`}
+      className={`text-white py-4 ${mobile} `}
+      style={{backgroundColor:`${blok.background ? blok.background.value : "#B1D8B7"}`}}
       {...storyblokEditable(blok)}
     >
       {blok.image ? (

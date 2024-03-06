@@ -24,7 +24,7 @@ const Feature = ({ blok }) => {
 
       {blok.image.filename ? (
         <img
-          className="w-[25%] mx-[37%] h-auto sm:w-[50%] sm:mx-[25%]"
+          className="w-[25%] mx-[37%] h-auto sm:w-[50%] sm:mx-[25%] object-cover"
           src={blok.image.filename}
           alt="feature"
         />

@@ -10,7 +10,7 @@ const Config = ({ locales, locale, defaultLocale, blok }) => {
     router.push(router.asPath, router.asPath, { locale: loc });
   };
   const [openMenu, setOpenMenu] = useState(false);
-console.log(blok.header_menu)
+// console.log(blok.header_menu)
   return (
     <div
       className="relative bg-white border-b-2 border-gray-100 font-inter -mb-4"

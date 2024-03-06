@@ -2,7 +2,7 @@ import { storyblokEditable } from "@storyblok/react";
 import Link from "next/link";
 
 export default function Collect({ blok }) {
-    console.log(blok)
+    // console.log(blok)
   return (
     <div {...storyblokEditable(blok)}>
       <ul>

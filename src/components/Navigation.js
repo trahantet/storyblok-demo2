@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { storyblokEditable } from "@storyblok/react";
 
 const Navigation = ({ locales, locale, defaultLocale, blok }) => {
-  console.log(blok)
+  // console.log(blok)
   const router = useRouter();
   const changeLocale = (loc) => {
     router.push(router.asPath, router.asPath, { locale: loc });
@@ -18,8 +18,8 @@ const Navigation = ({ locales, locale, defaultLocale, blok }) => {
     >
       
       {/* actual nav */}
-      <div className=" mx-auto px-4 sm:px-6">
-        <div className="flex justify-around items-center py-6 md:justify-start md:space-x-10">
+      <div className="flex mx-auto px-4 sm:px-6">
+        <div className="flex justify-around items-center py-6 md:justify-start md:space-x-10 ">
           <div className="flex justify-start lg:w-0 lg:flex-1 w-[30vw] text-4xl">
             <Link href="/">
               <span className="font-yeseva">{blok.Header}</span>

@@ -4,14 +4,14 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 const Button = ({ blok }) => {
 
   return (
-    <div {...storyblokEditable(blok)}>
+    <div {...storyblokEditable(blok)} >
     
           {/* <div className="flex justify-evenly content-center ml-[15%]"> */}
            
               
                 <button
                   
-                  className="bg-white border-2 border-black w-2/12 h-[8%] px-[2%] "
+                  className=" bg-white border-2 border-black w-2/12 h-[8%] px-[2%] "
                 >
                   <Link className="" href={`${blok.Link.url}`} target="_blank">
                   {blok.button_text}
@@ -20,7 +20,7 @@ const Button = ({ blok }) => {
          
             
           {/* </div> */}
-        
+         
       
  
 </div>

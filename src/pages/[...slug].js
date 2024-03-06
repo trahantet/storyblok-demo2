@@ -17,7 +17,7 @@ export default function Page({
     locales: locales,
     defaultLocale: defaultLocale,
   });
-  // console.log(story);
+  console.log(locale);
   return (
     <div>
       <Head>
@@ -69,7 +69,7 @@ export async function getStaticPaths({ locales }) {
   });
   let paths = [];
   Object.keys(data.links).forEach((linkKey) => {
-    if (data.links[linkKey].is_folder || data.links[linkKey].slug === "home") {
+    if (data.links[linkKey].is_folder || data.links[linkKey].slug === "march-28") {
       return 
     }
     const slug = data.links[linkKey].slug;

@@ -5,28 +5,34 @@ const Hero = ({ blok }) => {
   const font = `${blok.font_size}vw`;
   return (
     <div {...storyblokEditable(blok)} className="mt-0">
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row order-last">
         <div
           className={`sm:w-[40vw] bg-col sm:text-left py-1 px-[2%]`}
           style={{ backgroundColor: `${blok.background_color.value}` }}
         >
-          <h1 className={`header font-sailors text-header z-50 sm:align-left sm:pr-[20%] leading-[1.6]`} >
+          <h1
+            className={`header font-sailors text-header z-50 sm:align-left sm:pr-[20%] leading-[1.6]`}
+          >
             {/* style={{ fontSize: font ? font : "4.5vw"}} */}
             <span className="bg-sage">{blok.headline}</span>
           </h1>
           <h3 className="font-bold">{blok.subheadline}</h3>
           <h3 className="font-light">{blok.body_text}</h3>
           {blok.button ? (
-            <div className="flex justify-evenly align-center content-start gap-4 w-[100%]">
+            <div className="justify-evenly align-center content-start gap-4 w-[100%]">
               {blok.button.map((unit) => {
+                const mobile = unit.desktop_only;
+                // console.log(mobile)
                 return (
                   <button
                     key={unit._uid}
-                    className="bg-white border-2 border-black w-[50%] h-12 "
+                    className="button bg-white border-2 border-black w-[50%] h-12 "
+                    // style={{ display: mobile ? "none" : "inline" }}
                   >
                     <Link href={`${unit.Link.url}`} target="_blank">
                       {unit.button_text}
                     </Link>
+                    
                   </button>
                 );
               })}{" "}
@@ -34,25 +40,41 @@ const Hero = ({ blok }) => {
           ) : null}
         </div>
 
-        <div className="sm:w-[60vw] sm:px-[2%]">
-          <img src={blok.hero_image.filename}></img>
+        <div className="sm:w-[60vw] sm:px-[2%] order-first ">
+          <img className="" src={blok.hero_image.filename}></img>
         </div>
       </div>
       <style jsx>{`
         .header {
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: ${font}
-         
+          font-weight: bold;
+          text-transform: uppercase;
+          font-size: ${font};
         }
+        .button{
+          
+
+        }
+
         @media (max-width: 768px) {
-          .header{
+          .header {
             font-size: 7vw;
-            
           }
+          .button {
+            display: ${blok.button_display ? "inline" : "none"};
+            
+         }
         }
       `}</style>
-
+      {/* <style jsx>{`
+                      .button {
+                        display: inline;
+                      }
+                      @media (max-width: 768px) {
+                        .button {
+                           display: ${unit.desktop_only} ? "flex" : "inline";
+                        }
+                      }
+                    `}</style> */}
     </div>
   );
 };
