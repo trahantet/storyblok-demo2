@@ -98,7 +98,7 @@ const components = {
   line_break: LineBreak,
   dynamic: Dynamic,
   Collection: Collect,
-  Footer: Footer,
+  footer: Footer,
   Navigation: Navigation,
 };
 

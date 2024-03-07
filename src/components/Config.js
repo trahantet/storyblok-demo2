@@ -57,7 +57,7 @@ const Config = ({ locales, locale, defaultLocale, blok }) => {
 
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10 ">
             {blok.header_menu.map((route) => (
-              console.log(route),
+              // console.log(route),
               <Link
                 key={route._uid}
                 //  href="https://airtable.com/appovsAD7ZM2tQUFX/shrtFmpmtxoRUEcBU"
@@ -77,7 +77,7 @@ const Config = ({ locales, locale, defaultLocale, blok }) => {
                   locale === loc ? "bg-sage text-header" : ""
                 }`}
               >
-                {loc}
+                {loc === "espanol" ? "ESPAÑOL" : "ENGLISH"} 
               </span>
             )) : ""}
             {/* <div className="text-sage">EN|ES|FR</div> */}

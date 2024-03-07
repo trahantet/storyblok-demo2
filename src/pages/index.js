@@ -14,8 +14,7 @@ export default function Home({ story, locales, locale, defaultLocale, config }) 
     defaultLocale: defaultLocale,
   });
 
-  console.log(locale);
-  console.log(locales);
+  console.log(story)
 
   return (
     <div>
@@ -28,6 +27,7 @@ export default function Home({ story, locales, locale, defaultLocale, config }) 
         locales={locales}
         locale={locale}
         defaultLocale={defaultLocale}
+        home={story.content} 
       >
         <StoryblokComponent blok={story.content} />
       </Layout>
