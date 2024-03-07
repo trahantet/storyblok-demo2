@@ -57,11 +57,11 @@ const Config = ({ locales, locale, defaultLocale, blok }) => {
 
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10 ">
             {blok.header_menu.map((route) => (
-              
+              console.log(route),
               <Link
                 key={route._uid}
                 //  href="https://airtable.com/appovsAD7ZM2tQUFX/shrtFmpmtxoRUEcBU"
-                href={route.link.url ?  route.link.url : route.link.cached_url === "home"| route.link.cached_url === "/ESP/home" ?  `./#${route.link.anchor}` : route.link.cached_url }
+                href={route.link.url ?  route.link.url : route.link.cached_url === "march-28"| route.link.cached_url === "/espanol/march-28" ?  `./#${route.link.anchor}` : route.link.cached_url }
                 target={route.link.target}
                 className="text-base font-medium text-gray-500 hover:text-gray-900 "
               >

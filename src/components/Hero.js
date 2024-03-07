@@ -7,7 +7,7 @@ const Hero = ({ blok }) => {
     <div {...storyblokEditable(blok)} className="mt-0">
       <div className="flex flex-col md:flex-row order-last">
         <div
-          className={`sm:w-[40vw] bg-col sm:text-left py-1 px-[2%]`}
+          className={`sm:w-[40vw] bg-col sm:text-left py-1 px-[2%] justify-center flex flex-col`}
           style={{ backgroundColor: `${blok.background_color.value}` }}
         >
           <h1
@@ -22,7 +22,7 @@ const Hero = ({ blok }) => {
             <div className="justify-evenly align-center content-start gap-4 w-[100%]">
               {blok.button.map((unit) => {
                 const mobile = unit.desktop_only;
-                // console.log(mobile)
+              
                 return (
                   <button
                     key={unit._uid}
@@ -65,16 +65,7 @@ const Hero = ({ blok }) => {
          }
         }
       `}</style>
-      {/* <style jsx>{`
-                      .button {
-                        display: inline;
-                      }
-                      @media (max-width: 768px) {
-                        .button {
-                           display: ${unit.desktop_only} ? "flex" : "inline";
-                        }
-                      }
-                    `}</style> */}
+     
     </div>
   );
 };

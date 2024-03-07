@@ -25,6 +25,7 @@ const Navigation = ({ locales, locale, defaultLocale, blok }) => {
               <span className="font-yeseva">{blok.Header}</span>
             </Link>
           </div>
+          {/* mobile hamburger */}
           <div className="-mr-2 -my-2 md:hidden">
             <button
               type="button"
@@ -51,9 +52,10 @@ const Navigation = ({ locales, locale, defaultLocale, blok }) => {
               </svg>
             </button>
           </div>
-
+{/* desktop nav */}
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10 ">
             {blok.header_menu.map((route) => (
+              console.log(route),
               <Link
                 key={route._uid}
                 //  href="https://airtable.com/appovsAD7ZM2tQUFX/shrtFmpmtxoRUEcBU"
@@ -61,7 +63,7 @@ const Navigation = ({ locales, locale, defaultLocale, blok }) => {
                 target={route.link.target}
                 className="text-base font-medium text-gray-500 hover:text-gray-900 "
               >
-                {route.name}
+                {route.name} 
               </Link>
             ))}
 
