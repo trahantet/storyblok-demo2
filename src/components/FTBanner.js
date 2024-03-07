@@ -48,8 +48,8 @@ const FtBanner = ({ blok }) => {
           })}
         </div>
 
-        {blok.images.map((image) =>
-          image.filename ? (
+        {blok.images.map((image, i) =>
+          image.filename && i == 0 ? (
             <div key={image._uid} className="sm:max-w-96 ">
               <img
                 key={image._uid}
@@ -58,9 +58,16 @@ const FtBanner = ({ blok }) => {
                 alt="feature"
               />
             </div>
-          ) : (
-            ""
-          )
+          ) :  image.filename ? (
+            <div key={image._uid} className="sm:max-w-96 hidden sm:inline">
+              <img
+                key={image._uid}
+                className=""
+                src={image.filename}
+                alt="feature"
+              />
+            </div>
+          ) : ""
         )}
       </div>
     </div>
