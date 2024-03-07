@@ -11,29 +11,38 @@ export default function Page({
   locale,
   defaultLocale,
   config,
-  home,
+  footer,
 }) {
-  story = useStoryblokState(story, {
-    language: locale,
-    locales: locales,
-    defaultLocale: defaultLocale,
-  });
-  console.log(home);
+  story = useStoryblokState(
+    story,
+    {
+      language: locale,
+      locales: locales,
+      defaultLocale: defaultLocale,
+    },
+  );
+ 
   return (
     <div>
       <Head>
-      <title>{story ? story.name : "My Site"}</title>
-        <link rel="icon" href="/MARCH 28 ICON Green Minimalist Simple (1).svg" />
+        <title>{story ? story.name : "My Site"}</title>
+        <link
+          rel="icon"
+          href="/MARCH 28 ICON Green Minimalist Simple (1).svg"
+        />
       </Head>
       <Layout
         config={config}
-        home={home}
+        footer={footer}
         locales={locales}
         locale={locale}
         defaultLocale={defaultLocale}
         blok={story ? story.content : null}
       >
-      <StoryblokComponent blok={story ? story.content : null} locale={locale}  />
+        <StoryblokComponent
+          blok={story ? story.content : null}
+          locale={locale}
+        />
       </Layout>
     </div>
   );
@@ -52,7 +61,7 @@ export async function getStaticProps({
   };
   const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
-  let {data: home} = await storyblokApi.get(`cdn/stories/march-28`, sbParams);
+  let { data: footer } = await storyblokApi.get(`cdn/stories/footer`, sbParams);
   let { data: config } = await storyblokApi.get("cdn/stories/config", sbParams);
   return {
     props: {
@@ -62,7 +71,7 @@ export async function getStaticProps({
       story: data ? data.story : false,
       key: data ? data.story.id : false,
       config: config ? config.story : false,
-      home: home.story ? home.story : false,
+      footer: footer ? footer.story : false,
     },
     revalidate: 3600,
   };
@@ -74,8 +83,11 @@ export async function getStaticPaths({ locales }) {
   });
   let paths = [];
   Object.keys(data.links).forEach((linkKey) => {
-    if (data.links[linkKey].is_folder || data.links[linkKey].slug === "march-28") {
-      return 
+    if (
+      data.links[linkKey].is_folder ||
+      data.links[linkKey].slug === "march-28"
+    ) {
+      return;
     }
     const slug = data.links[linkKey].slug;
     let splittedSlug = slug.split("/");

@@ -7,14 +7,14 @@ import {
   StoryblokComponent,
 } from "@storyblok/react";
 
-export default function Home({ story, locales, locale, defaultLocale, config }) {
+export default function Home({ story, locales, locale, defaultLocale, config, footer }) {
   story = useStoryblokState(story, {
     language: locale,
     locales: locales,
     defaultLocale: defaultLocale,
   });
 
-  console.log(story)
+  // console.log(story)
 
   return (
     <div>
@@ -27,7 +27,7 @@ export default function Home({ story, locales, locale, defaultLocale, config }) 
         locales={locales}
         locale={locale}
         defaultLocale={defaultLocale}
-        home={story.content} 
+        footer={footer} 
       >
         <StoryblokComponent blok={story.content} />
       </Layout>
@@ -47,6 +47,7 @@ export async function getStaticProps({ locales, locale, defaultLocale }) {
   const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
   let { data: config } = await storyblokApi.get("cdn/stories/config", sbParams);
+  let { data: footer } = await storyblokApi.get("cdn/stories/footer", sbParams);
   return {
     props: {
       locales,
@@ -55,6 +56,7 @@ export async function getStaticProps({ locales, locale, defaultLocale }) {
       story: data ? data.story : false,
       key: data ? data.story.id : false,
       config: config ? config.story : false,
+      footer: footer ? footer.story : false,
     },
     revalidate: 3600,
   };

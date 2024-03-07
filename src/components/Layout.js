@@ -2,14 +2,14 @@ import Navigation from "./Navigation";
 import Footer from "./Footer";
 import Config from "./Config";
 
-const Layout = ({ children, config, locale, locales, defaultLocale, home }) => (
-  console.log(home),
+const Layout = ({ children, config, locale, locales, defaultLocale, footer }) => (
+  // console.log(home.content),
   (
     <div>
       <Config blok={config.content} locales={locales} locale={locale} defaultLocale={defaultLocale}/>
        
       {children}
-      <Footer blok={home.content}/>
+      <Footer blok={footer.content}/>
     </div>
   )
 );
