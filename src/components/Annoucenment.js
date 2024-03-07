@@ -75,12 +75,13 @@ export default function Announcement({ blok }) {
         {blok.buttons ? (
           <div className="flex flex-col sm:flex-row justify-evenly content-center w-[70%] ml-[15%] mt-[4%]">
             {blok.buttons.map((unit) => {
+              console.log(unit)
               return (
                 <button
                   key={unit._uid}
                   className="bg-white border-2 border-black my-2 sm:w-2/12 h-12"
                 >
-                  <Link href={`${unit.Link.url}`} target={`${unit.Link.target}`}>
+                  <Link href={unit.Link.url ? `${unit.Link.url}` : `${unit.Link.cached_url}`} target={unit.Link.target ? `${unit.Link.target}` : "_self"}>
                     {unit.button_text}
                   </Link>
                 </button>
