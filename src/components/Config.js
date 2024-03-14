@@ -142,7 +142,7 @@ const Config = ({ locales, locale, defaultLocale, blok }) => {
                   locale === loc ? "bg-sage text-header" : ""
                 }`}
               >
-                {loc}
+                {loc === "espanol" ? "ESPAÑOL" : "ENGLISH"} 
               </span>
             )) : ""}
               </div>
