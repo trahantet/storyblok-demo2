@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import Script from "next/script";
 import { storyblokInit, apiPlugin, RichTextSchema } from "@storyblok/react";
 
 import Feature from "../components/Feature";
@@ -125,6 +126,21 @@ storyblokInit({
 function MyApp({ Component, pageProps }) {
   // console.log(pageProps.locales)
   return (
+    <>
+   <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+        `}
+      </Script>
+    
     <main
       className={`${yeseva_one.variable} ${inter.variable} ${sailors.variable}  ${quicksand.variable}`}
     >
@@ -132,6 +148,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       {/* </Layout> */}
     </main>
+    </>
   );
 }
 
