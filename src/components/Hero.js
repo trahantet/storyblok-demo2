@@ -29,7 +29,7 @@ const Hero = ({ blok }) => {
                     className="button bg-white border-2 border-black w-[50%] h-12 "
                     // style={{ display: mobile ? "none" : "inline" }}
                   >
-                    <Link href={`${unit.Link.url}`} target="_blank">
+                   <Link href={unit.Link.url ? `${unit.Link.url}` : `${unit.Link.cached_url}`} target={unit.Link.target ? `${unit.Link.target}` : "_self"}>
                       {unit.button_text}
                     </Link>
                     

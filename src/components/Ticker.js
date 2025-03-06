@@ -36,4 +36,4 @@ const Ticker = ({ blok }) => {
   );
 };
 
-export default Ticker;
+export default Ticker; 

@@ -13,15 +13,12 @@ export default function Page({
   config,
   footer,
 }) {
-  story = useStoryblokState(
-    story,
-    {
-      language: locale,
-      locales: locales,
-      defaultLocale: defaultLocale,
-    },
-  );
- 
+  story = useStoryblokState(story, {
+    language: locale,
+    locales: locales,
+    defaultLocale: defaultLocale,
+  });
+
   return (
     <div>
       <Head>
